@@ -1,1 +1,78 @@
-
+<html>
+    <head>
+        <title>Wave Viewer</title>
+    </head>
+    <script src="SignalChannel.js"></script>
+    <script src="MonitorChannel.js"></script>
+    <script src="Plotter.js"></script>
+    <script src="app.js"></script>
+    <body style="background-image: url('leather.png'); margin:0; padding:0;">
+        <table style="border-spacing: 0px">
+            <tr>
+                <td width="400" style="vertical-align: top;width: 350px;height: 350px;">
+                    <table width="350">
+                        <tr>
+                            <td style="border:5px solid #332000; padding: 10px;color: white;background-color: #a36302;">
+                                <button onclick="start()" id="btnStart">Start</button>
+                                <button onclick="pause()" id="btnPause" disabled>Pause</button>
+                                |
+                                <select name="inputs" id="inputs" style="width: 180px;">
+                                    <!-- <option value="DeviceId">Device Name</option> -->
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border:5px solid #332000; padding: 10px;color: white;background-color: #a36302;">
+                                <b> [Signal Generator] </b>
+                                <button onclick="oscStart()" id="btnOSCStart">Start</button>
+                                <br /><br />
+                                Amplitude: <br /> 
+                                <input type="range" min="1" max="200" value="100" class="slider" id="sigAmp" style="width: 250px;" onchange="changeAmp()">
+                                <br /><br />
+                                <input type="radio" name="signalType" value="sine" checked>Sine
+                                <input type="radio" name="signalType" value="square">Square
+                                <input type="radio" name="signalType" value="sawtooth">Sawtooth
+                                <input type="radio" name="signalType" value="triangle">Triangle
+                                <br /><br />
+                                Frequency (Hz): <input type="text" id="sigFreq" style="width: 50px;" value="440" /> 
+                                <button onclick="setFreq()" id="btnSetFreq">Set Value</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border:5px solid #332000; padding: 10px;color: white;background-color: #a36302;">
+                                <b> [Display Settings] </b>
+                                <br /><br />
+                                Offset (samples) : 
+                                <button onclick="offsetMinus()" id="btnOffsetMinus">-</button>
+                                <input type="text" id="offset" style="width: 50px;" value="0" />
+                                <button onclick="offsetPlus()" id="btnOffsetPlus">+</button>
+                                <button onclick="offset()" id="btnOffset">Set Value</button> 
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="400">
+                    <canvas id="response" width="400" height="400" style="background-color: rgb(193, 255, 243);border:5px solid #332000">
+                        Your browser does not support the HTML canvas tag.
+                    </canvas>            
+                </td>
+                <td width="1000">
+                    <canvas id="frequency" width="1100" height="400" style="background-color: rgb(193, 255, 243);border:5px solid #332000">
+                        Your browser does not support the HTML canvas tag.
+                    </canvas>            
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <canvas id="waveform" width="1864" height="500" style="background-color: rgb(193, 255, 243);border:5px solid #332000">
+                        Your browser does not support the HTML canvas tag.
+                    </canvas>            
+                </td>
+            </tr>
+            <tr>
+                <td style="color: rgb(168, 168, 168);">Web Oscilloscope for stereo sound card | @2023</td>
+            </tr>
+        </table>
+        <script>initApp()</script>            
+    </body>
+</html>
