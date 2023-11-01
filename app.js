@@ -199,7 +199,7 @@ async function initApp() {
   }
 
   //Init Displays
-  new Display(document.getElementById("phase")).renderWaveform();
+  new Display(document.getElementById("phase")).renderResponse();
   new Display(document.getElementById("waveform")).renderWaveform();
-  new Display(document.getElementById("frequency")).renderWaveform();
+  new Display(document.getElementById("frequency")).renderFrequence();
 }
