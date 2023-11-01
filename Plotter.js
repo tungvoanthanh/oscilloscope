@@ -32,7 +32,7 @@ class Plotter {
         this.dsplPhase.renderResponse();
 
         this.dsplFrequency = new Display(cvsFrequency);
-        this.dsplFrequency.renderFrequence();
+        this.dsplFrequency.renderFrequency();
         this.dsplFrequency.initDataArrays(this.lAnalyser.frequencyBinCount);
     }
 
@@ -50,7 +50,7 @@ class Plotter {
         //Render data
         this.dsplWaveform.renderWaveform();
         this.dsplPhase.renderResponse();
-        this.dsplFrequency.renderFrequence();
+        this.dsplFrequency.renderFrequency();
     }
 
     // Start Plotter in Mono mode

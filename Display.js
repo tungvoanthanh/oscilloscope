@@ -81,7 +81,7 @@ class Display {
   }
 
   // @Public: Render data as spectrum
-  renderFrequence() {
+  renderFrequency() {
     this.clearCanvas();
     this.drawFrequencyAxis();
     this.drawFrequency(this.lDataArray, DCOLOR_LEFT_CHANNEL);
